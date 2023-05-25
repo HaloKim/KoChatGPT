@@ -28,6 +28,13 @@ def prepare_logits_processor(top_k: Optional[int] = None,
     return processor_list
 
 
+def prepare_inputs_for_generation(self, input_ids, **kwargs):
+        # Implement in subclasses for custom behavior to prepare inputs in the
+        # generate method.
+
+        return {"input_ids": input_ids}
+    
+    
 def _is_sequence_finished(unfinished_sequences: torch.Tensor) -> bool:
     if dist.is_initialized() and dist.get_world_size() > 1:
         # consider DP
