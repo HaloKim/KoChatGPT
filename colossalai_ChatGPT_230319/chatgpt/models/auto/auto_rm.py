@@ -6,7 +6,7 @@ from transformers import AutoConfig, AutoModel
 from ..base import RewardModel
 
 
-class GPTRM(RewardModel):
+class AutoRM(RewardModel):
     """
     GPT Reward model.
 
