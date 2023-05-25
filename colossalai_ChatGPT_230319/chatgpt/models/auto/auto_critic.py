@@ -32,5 +32,5 @@ class AutoCritic(Critic):
             model = AutoModel(AutoConfig())
         if checkpoint:
             model.gradient_checkpointing_enable()
-        value_head = nn.Linear(model.config.n_embd, 1)
+        value_head = nn.Linear(model.config.hidden_size, 1)
         super().__init__(model, value_head, lora_rank, lora_train_bias)
