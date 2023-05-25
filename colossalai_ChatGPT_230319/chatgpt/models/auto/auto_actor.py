@@ -1,6 +1,6 @@
 from typing import Optional
 
-from transformers import AutoConfig, AutoModel
+from transformers import AutoConfig, AutoModel, AutoModelForCausalLM
 
 from ..base import Actor
 
@@ -24,7 +24,7 @@ class AutoActor(Actor):
                  lora_rank: int = 0,
                  lora_train_bias: str = 'none') -> None:
         if pretrained is not None:
-            model = AutoModel.from_pretrained(pretrained)
+            model = AutoModelForCausalLM.from_pretrained(pretrained)
         elif config is not None:
             model = AutoModel(config)
         else:
