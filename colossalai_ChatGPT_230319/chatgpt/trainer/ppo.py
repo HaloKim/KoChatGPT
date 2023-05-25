@@ -100,7 +100,7 @@ class PPOTrainer(Trainer):
         self.strategy.optimizer_step(self.critic_optim)
         self.critic_optim.zero_grad()
 
-        return {'actor_loss': actor_loss.item(), 'critic_loss': critic_loss.item()}
+        return {'actor_loss': actor_loss, 'critic_loss': critic_loss}
 
 
 def _set_default_generate_kwargs(strategy: Strategy, generate_kwargs: dict, actor: Actor) -> None:
