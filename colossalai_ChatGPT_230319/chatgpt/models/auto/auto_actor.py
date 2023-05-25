@@ -5,7 +5,7 @@ from transformers import AutoConfig, AutoModel
 from ..base import Actor
 
 
-class MyGPTActor(Actor):
+class AutoActor(Actor):
     """
     GPT Actor model.
 
