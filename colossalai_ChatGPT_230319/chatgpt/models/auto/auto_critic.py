@@ -6,7 +6,7 @@ from transformers import AutoConfig, AutoModel
 from ..base import Critic
 
 
-class MyGPTCritic(Critic):
+class AutoGPTCritic(Critic):
     """
     GPT Critic model.
 
