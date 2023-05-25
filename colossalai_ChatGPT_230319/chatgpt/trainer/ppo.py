@@ -81,7 +81,6 @@ class PPOTrainer(Trainer):
 
         num_actions = experience.action_mask.size(1)
         action_log_probs = self.actor(experience.sequences, num_actions, attention_mask=experience.attention_mask)
-        print(action_log_probs, experience.action_log_probs)
         actor_loss = self.actor_loss_fn(action_log_probs,
                                         experience.action_log_probs,
                                         experience.advantages,
@@ -100,7 +99,7 @@ class PPOTrainer(Trainer):
         self.strategy.backward(critic_loss, self.critic, self.critic_optim)
         self.strategy.optimizer_step(self.critic_optim)
         self.critic_optim.zero_grad()
-        
+
         return {'actor_loss': actor_loss.item(), 'critic_loss': critic_loss.item()}
 
 
